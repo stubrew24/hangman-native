@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import Hits from '../components/Hits';
 import Graphic from '../components/Graphic';
 import Misses from '../components/Misses';
@@ -24,10 +24,6 @@ const Game = ({hits, misses}) => {
     getDef(state.word.join(''));
   }, [dispatch, state.word]);
 
-  if (state.gameover) {
-    return <GameEndModal />;
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.misses}>
@@ -42,6 +38,11 @@ const Game = ({hits, misses}) => {
       <View style={styles.keyboard}>
         <Keyboard />
       </View>
+      {state.gameover && (
+        <View style={styles.modal}>
+          <GameEndModal />
+        </View>
+      )}
     </View>
   );
 };
@@ -66,6 +67,9 @@ const styles = StyleSheet.create({
     flex: 4,
     backgroundColor: '#fff',
     paddingBottom: 10,
+  },
+  modal: {
+    ...StyleSheet.absoluteFillObject,
   },
 });
 

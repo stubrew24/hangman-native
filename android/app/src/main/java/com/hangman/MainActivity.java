@@ -1,4 +1,4 @@
-package com.hangman;
+package com.stuartsewell.hangman;
 
 import com.facebook.react.ReactActivity;
 

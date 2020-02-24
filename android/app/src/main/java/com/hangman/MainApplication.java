@@ -1,4 +1,4 @@
-package com.hangman;
+package com.stuartsewell.hangman;
 
 import android.app.Application;
 import android.content.Context;
